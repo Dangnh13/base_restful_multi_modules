@@ -1,0 +1,275 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ko.alliex</groupId>
+    <artifactId>asset-alliex</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>asset-alliex-api</name>
+    <description>Asset management system</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.3</version>
+    </parent>
+
+    <properties>
+
+        <!-- Project -->
+        <project.version>0.0.1-SNAPSHOT</project.version>
+
+        <!-- Java -->
+        <java.version>11</java.version>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+
+        <!-- spring -->
+        <springfox.boot.starter.version>3.0.0</springfox.boot.starter.version>
+        <reactor.spring.version>1.0.1.RELEASE</reactor.spring.version>
+
+        <!--Security-->
+        <oauth2.oidc.sdk.version>8.19</oauth2.oidc.sdk.version>
+        <reactor.spring.version>1.0.1.RELEASE</reactor.spring.version>
+
+        <!-- MySQL -->
+        <mysql.connector.java.version>8.0.20</mysql.connector.java.version>
+
+        <!--Mybatis-->
+        <mybatis.spring.boot.version>2.1.3</mybatis.spring.boot.version>
+        <pagehelper.version>5.2.0</pagehelper.version>
+        <pagehelper.spring.boot.starter.version>1.3.0</pagehelper.spring.boot.starter.version>
+        <mybatis.generator.core.version>1.4.0</mybatis.generator.core.version>
+        <mybatis.generator.maven.plugin.version>1.3.7</mybatis.generator.maven.plugin.version>
+        <mybatis.generator.lombok.version>1.0</mybatis.generator.lombok.version>
+
+        <!-- Other libs -->
+        <lombok.version>1.18.12</lombok.version>
+        <commons.beanutils.version>1.9.4</commons.beanutils.version>
+        <commons.collections.version>4.4</commons.collections.version>
+        <commons.lang3.version>3.9</commons.lang3.version>
+        <mail.version>1.4.7</mail.version>
+        <guava.version>30.0-jre</guava.version>
+        <opencsv.version>5.5.1</opencsv.version>
+        <gson.version>2.8.6</gson.version>
+        <icu4j.version>64.2</icu4j.version>
+        <software.amazon.awssdk.bom.version>2.1.0</software.amazon.awssdk.bom.version>
+        <aws.java.sdk.bom.version>1.11.428</aws.java.sdk.bom.version>
+        <commons.text.version>1.9</commons.text.version>
+        <apache.client.version>2.1.0</apache.client.version>
+        <commons.io.version>2.6</commons.io.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Framework -->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>framework</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Data transfer object dependencies-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>dto</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Domain dependencies-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--Persistence dependencies-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Business dependencies-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>business</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>business-interface</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>business-implementation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Oauth2 service-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>oauth2-google</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- jwt security service-->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>jwt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- Jwt security for subsystems -->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>subsystem-jwt</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- Event bus -->
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>vertx-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>event-bus-web-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>rest-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ko.alliex</groupId>
+                <artifactId>subsystem-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>${aws.java.sdk.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>software.amazon.awssdk</groupId>
+                <artifactId>bom</artifactId>
+                <version>${software.amazon.awssdk.bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>framework</module>
+        <module>dto</module>
+        <module>domain</module>
+        <module>persistence</module>
+        <module>business</module>
+        <module>security</module>
+        <module>mybatis-generator</module>
+        <module>web</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>generatorConfig.xml</exclude>
+                    <exclude>migration/**</exclude>
+                    <exclude>schema/**</exclude>
+                </excludes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>jasper</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>jrxml</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

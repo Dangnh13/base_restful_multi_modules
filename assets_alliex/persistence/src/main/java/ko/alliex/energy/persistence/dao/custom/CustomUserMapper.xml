@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ko.alliex.energy.persistence.dao.custom.CustomUserMapper">
+
+    <resultMap id="moduleDetailRst" type="ko.alliex.energy.dto.user.rst.ModuleDetailRst"
+               extends="ko.alliex.energy.persistence.dao.generator.ModuleMasterMapper.BaseResultMap">
+        <collection property="apiMasters"
+                    resultMap="ko.alliex.energy.persistence.dao.generator.ApiMasterMapper.BaseResultMap"
+                    columnPrefix="api_prefix_"/>
+    </resultMap>
+
+    <resultMap id="userDetailResultMap" type="ko.alliex.energy.dto.user.rst.UserDetailRst"
+               extends="ko.alliex.energy.persistence.dao.generator.UsersMapper.BaseResultMap">
+        <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <collection property="moduleDetails"
+                    resultMap="moduleDetailRst">
+        </collection>
+    </resultMap>
+
+    <select id="getUserDetailsByEmail" resultMap="userDetailResultMap"
+            parameterType="java.lang.String">
+        SELECT
+        usr.user_id,
+        usr.email,
+        usr.PASSWORD,
+        usr.first_name,
+        usr.last_name,
+        role.role_identifier,
+        role.role_name,
+        module.module_id ,
+        module.module_identifier ,
+        module.module_name ,
+        api.api_url AS api_prefix_api_url,
+        api.api_method AS api_prefix_api_method
+        FROM
+        users usr
+        LEFT JOIN role_master role ON usr.role_identifier = role.role_identifier
+        AND role.is_deleted = '${@ko.alliex.energy.framework.enums.EDeleteFlag@NOT_DELETED.code}'
+        LEFT JOIN module_role mr ON role.role_identifier = mr.role_identifier
+        AND mr.is_deleted = '${@ko.alliex.energy.framework.enums.EDeleteFlag@NOT_DELETED.code}'
+        LEFT JOIN module_master module ON mr.module_identifier = module.module_identifier
+        AND module.is_deleted = '${@ko.alliex.energy.framework.enums.EDeleteFlag@NOT_DELETED.code}'
+        LEFT JOIN api_master api ON module.module_identifier = api.module_identifier
+        AND api.is_deleted = '${@ko.alliex.energy.framework.enums.EDeleteFlag@NOT_DELETED.code}'
+        WHERE
+        1 = 1
+        AND usr.email = #{email,jdbcType=VARCHAR}
+        AND usr.is_deleted = '${@ko.alliex.energy.framework.enums.EDeleteFlag@NOT_DELETED.code}'
+    </select>
+
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<included>
+
+    <root level="info">
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <logger name="io.vertx.core.impl.BlockedThreadChecker" level="OFF"/>
+
+    <!-- Application logs at trace level -->
+    <logger name="ko.alliex.energy" level="info" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+</included>

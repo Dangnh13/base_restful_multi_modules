@@ -1,0 +1,7 @@
+endpoint:
+  user:
+    me: /user/me
+    find: /users/find
+    save: /user
+    detail: /user/{userId}
+    delete: /user/{userId}

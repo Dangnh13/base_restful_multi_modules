@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ko.alliex.energy.persistence.dao.generator.ModuleRoleMapper">
+  <resultMap id="BaseResultMap" type="ko.alliex.energy.domain.entity.generator.ModuleRole">
+    <id column="module_role_id" jdbcType="INTEGER" property="moduleRoleId" />
+    <result column="role_identifier" jdbcType="VARCHAR" property="roleIdentifier" />
+    <result column="module_identifier" jdbcType="VARCHAR" property="moduleIdentifier" />
+    <result column="is_deleted" jdbcType="SMALLINT" property="isDeleted" />
+    <result column="created_uid" jdbcType="INTEGER" property="createdUid" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_uid" jdbcType="INTEGER" property="updatedUid" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    module_role_id, role_identifier, module_identifier, is_deleted, created_uid, created_at, 
+    updated_uid, updated_at
+  </sql>
+  <select id="selectByExample" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRoleCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from module_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from module_role
+    where module_role_id = #{moduleRoleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from module_role
+    where module_role_id = #{moduleRoleId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRoleCriteria">
+    delete from module_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole">
+    <selectKey keyProperty="moduleRoleId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into module_role (role_identifier, module_identifier, 
+      is_deleted, created_uid, created_at, 
+      updated_uid, updated_at)
+    values (#{roleIdentifier,jdbcType=VARCHAR}, #{moduleIdentifier,jdbcType=VARCHAR}, 
+      #{isDeleted,jdbcType=SMALLINT}, #{createdUid,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedUid,jdbcType=INTEGER}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole">
+    <selectKey keyProperty="moduleRoleId" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into module_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleIdentifier != null">
+        role_identifier,
+      </if>
+      <if test="moduleIdentifier != null">
+        module_identifier,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createdUid != null">
+        created_uid,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedUid != null">
+        updated_uid,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleIdentifier != null">
+        #{roleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIdentifier != null">
+        #{moduleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=SMALLINT},
+      </if>
+      <if test="createdUid != null">
+        #{createdUid,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUid != null">
+        #{updatedUid,jdbcType=INTEGER},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRoleCriteria" resultType="java.lang.Long">
+    select count(*) from module_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update module_role
+    <set>
+      <if test="record.moduleRoleId != null">
+        module_role_id = #{record.moduleRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleIdentifier != null">
+        role_identifier = #{record.roleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.moduleIdentifier != null">
+        module_identifier = #{record.moduleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isDeleted != null">
+        is_deleted = #{record.isDeleted,jdbcType=SMALLINT},
+      </if>
+      <if test="record.createdUid != null">
+        created_uid = #{record.createdUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createdAt != null">
+        created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedUid != null">
+        updated_uid = #{record.updatedUid,jdbcType=INTEGER},
+      </if>
+      <if test="record.updatedAt != null">
+        updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update module_role
+    set module_role_id = #{record.moduleRoleId,jdbcType=INTEGER},
+      role_identifier = #{record.roleIdentifier,jdbcType=VARCHAR},
+      module_identifier = #{record.moduleIdentifier,jdbcType=VARCHAR},
+      is_deleted = #{record.isDeleted,jdbcType=SMALLINT},
+      created_uid = #{record.createdUid,jdbcType=INTEGER},
+      created_at = #{record.createdAt,jdbcType=TIMESTAMP},
+      updated_uid = #{record.updatedUid,jdbcType=INTEGER},
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole">
+    update module_role
+    <set>
+      <if test="roleIdentifier != null">
+        role_identifier = #{roleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIdentifier != null">
+        module_identifier = #{moduleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=SMALLINT},
+      </if>
+      <if test="createdUid != null">
+        created_uid = #{createdUid,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUid != null">
+        updated_uid = #{updatedUid,jdbcType=INTEGER},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where module_role_id = #{moduleRoleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole">
+    update module_role
+    set role_identifier = #{roleIdentifier,jdbcType=VARCHAR},
+      module_identifier = #{moduleIdentifier,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=SMALLINT},
+      created_uid = #{createdUid,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_uid = #{updatedUid,jdbcType=INTEGER},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where module_role_id = #{moduleRoleId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByExampleWithRowbounds" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRoleCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from module_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectOneByExample" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRoleCriteria" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from module_role
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    limit 1
+  </select>
+  <insert id="batchInsert" keyColumn="module_role_id" keyProperty="moduleRoleId" parameterType="map" useGeneratedKeys="true">
+    insert into module_role
+    (role_identifier, module_identifier, is_deleted, created_uid, created_at, updated_uid, 
+      updated_at)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.roleIdentifier,jdbcType=VARCHAR}, #{item.moduleIdentifier,jdbcType=VARCHAR}, 
+        #{item.isDeleted,jdbcType=SMALLINT}, #{item.createdUid,jdbcType=INTEGER}, #{item.createdAt,jdbcType=TIMESTAMP}, 
+        #{item.updatedUid,jdbcType=INTEGER}, #{item.updatedAt,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+  <insert id="batchInsertSelective" keyColumn="module_role_id" keyProperty="list.moduleRoleId" parameterType="map" useGeneratedKeys="true">
+    insert into module_role (
+    <foreach collection="selective" item="column" separator=",">
+      ${column.escapedColumnName}
+    </foreach>
+    )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (
+      <foreach collection="selective" item="column" separator=",">
+        <if test="'role_identifier'.toString() == column.value">
+          #{item.roleIdentifier,jdbcType=VARCHAR}
+        </if>
+        <if test="'module_identifier'.toString() == column.value">
+          #{item.moduleIdentifier,jdbcType=VARCHAR}
+        </if>
+        <if test="'is_deleted'.toString() == column.value">
+          #{item.isDeleted,jdbcType=SMALLINT}
+        </if>
+        <if test="'created_uid'.toString() == column.value">
+          #{item.createdUid,jdbcType=INTEGER}
+        </if>
+        <if test="'created_at'.toString() == column.value">
+          #{item.createdAt,jdbcType=TIMESTAMP}
+        </if>
+        <if test="'updated_uid'.toString() == column.value">
+          #{item.updatedUid,jdbcType=INTEGER}
+        </if>
+        <if test="'updated_at'.toString() == column.value">
+          #{item.updatedAt,jdbcType=TIMESTAMP}
+        </if>
+      </foreach>
+      )
+    </foreach>
+  </insert>
+  <insert id="upsertSelective" keyColumn="module_role_id" keyProperty="moduleRoleId" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole" useGeneratedKeys="true">
+    insert into module_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        module_role_id,
+      </if>
+      <if test="roleIdentifier != null">
+        role_identifier,
+      </if>
+      <if test="moduleIdentifier != null">
+        module_identifier,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createdUid != null">
+        created_uid,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedUid != null">
+        updated_uid,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        #{moduleRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="roleIdentifier != null">
+        #{roleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIdentifier != null">
+        #{moduleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=SMALLINT},
+      </if>
+      <if test="createdUid != null">
+        #{createdUid,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUid != null">
+        #{updatedUid,jdbcType=INTEGER},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        module_role_id = #{moduleRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="roleIdentifier != null">
+        role_identifier = #{roleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleIdentifier != null">
+        module_identifier = #{moduleIdentifier,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=SMALLINT},
+      </if>
+      <if test="createdUid != null">
+        created_uid = #{createdUid,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedUid != null">
+        updated_uid = #{updatedUid,jdbcType=INTEGER},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <insert id="upsert" keyColumn="module_role_id" keyProperty="moduleRoleId" parameterType="ko.alliex.energy.domain.entity.generator.ModuleRole" useGeneratedKeys="true">
+    insert into module_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        module_role_id,
+      </if>
+      role_identifier,
+      module_identifier,
+      is_deleted,
+      created_uid,
+      created_at,
+      updated_uid,
+      updated_at,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        #{moduleRoleId,jdbcType=INTEGER},
+      </if>
+      #{roleIdentifier,jdbcType=VARCHAR},
+      #{moduleIdentifier,jdbcType=VARCHAR},
+      #{isDeleted,jdbcType=SMALLINT},
+      #{createdUid,jdbcType=INTEGER},
+      #{createdAt,jdbcType=TIMESTAMP},
+      #{updatedUid,jdbcType=INTEGER},
+      #{updatedAt,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="moduleRoleId != null">
+        module_role_id = #{moduleRoleId,jdbcType=INTEGER},
+      </if>
+      role_identifier = #{roleIdentifier,jdbcType=VARCHAR},
+      module_identifier = #{moduleIdentifier,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=SMALLINT},
+      created_uid = #{createdUid,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_uid = #{updatedUid,jdbcType=INTEGER},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+</mapper>

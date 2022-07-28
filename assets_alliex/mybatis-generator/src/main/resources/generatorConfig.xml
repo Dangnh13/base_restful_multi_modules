@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <context id="context1" targetRuntime="MyBatis3">
+
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+
+        <plugin
+                type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+
+        <plugin
+                type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Criteria"/>
+        </plugin>
+
+        <!-- <plugin type="org.mybatis.generator.plugins.CachePlugin"/> -->
+
+        <plugin
+                type="com.itfsw.mybatis.generator.plugins.SelectOneByExamplePlugin"/>
+
+        <plugin
+                type="com.itfsw.mybatis.generator.plugins.ModelColumnPlugin"/>
+
+        <plugin
+                type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin">
+            <property name="allowMultiQueries" value="false"/>
+        </plugin>
+
+        <plugin
+                type="com.itfsw.mybatis.generator.plugins.ExampleEnhancedPlugin">
+            <property name="enableAndIf" value="true"/>
+        </plugin>
+
+        <plugin type="com.itfsw.mybatis.generator.plugins.UpsertPlugin">
+            <property name="allowMultiQueries" value="false"/>
+            <property name="allowBatchUpsert" value="fasle"/>
+        </plugin>
+
+        <plugin
+                type="com.github.oceanc.mybatis3.generator.plugin.WhereSqlTextPlugin"/>
+
+        <!-- <plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"></plugin> -->
+        <!--<plugin type="com.plugin.example.MapperClassNamePlugin"/> <plugin type="com.plugin.example.EntityClassNamePlugin"/> -->
+
+        <plugin
+                type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
+
+            <!-- enable annotations -->
+            <property name="builder" value="false"/>
+
+            <!-- annotation's option(boolean) -->
+            <property name="builder.fluent" value="true"/>
+
+            <!-- annotation's option(String) -->
+            <property name="builder.builderMethodName" value="myBuilder"/>
+
+            <property name="accessors" value="true"/>
+
+            <!-- annotation's option(array of String) -->
+            <property name="accessors.prefix" value="m_, _"/>
+
+            <!-- disable annotations -->
+            <property name="allArgsConstructor" value="false"/>
+
+            <property name="toString" value="true"/>
+        </plugin>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/assets_alliex"
+                        userId="root" password="">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator
+                targetPackage="ko.alliex.energy.domain.entity.generator"
+                targetProject="../domain/src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator
+                targetPackage="ko.alliex.energy.persistence.dao.generator"
+                targetProject="../persistence/src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator
+                targetPackage="ko.alliex.energy.persistence.dao.generator"
+                targetProject="../persistence/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <table tableName="api_master">
+            <generatedKey column="api_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="module_master">
+            <generatedKey column="module_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="module_role">
+            <generatedKey column="module_role_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="role_master">
+            <generatedKey column="role_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="users">
+            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="department">
+            <generatedKey column="department_id" sqlStatement="MySql" identity="true"/>
+        </table>
+    </context>
+
+</generatorConfiguration>

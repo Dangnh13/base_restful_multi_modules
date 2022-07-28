@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rp_purchase_rank_sale" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="7472fcb6-a436-411f-b550-494409125a32">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySql"/>
+	<parameter name="p_start_version" class="java.lang.Integer"/>
+	<parameter name="p_end_version" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="srComName" class="java.lang.String"/>
+	<field name="numOfPowPlant" class="java.lang.Integer"/>
+	<field name="totalAc" class="java.math.BigDecimal"/>
+	<field name="totalDc" class="java.math.BigDecimal"/>
+	<field name="ministryPowPlantsVersion" class="java.lang.String"/>
+	<field name="prComName" class="java.lang.String"/>
+	<field name="prTotalMinistryPowPlantsId" class="java.lang.Integer"/>
+	<field name="prAc" class="java.math.BigDecimal"/>
+	<field name="prDc" class="java.math.BigDecimal"/>
+	<field name="srAfComOperatorsId" class="java.lang.String"/>
+	<field name="prAfComOperatorsID" class="java.lang.String"/>
+	<variable name="v_sum_pow_plant_gversion" class="java.lang.Integer" resetType="Group" resetGroup="G_Version" calculation="Sum">
+		<variableExpression><![CDATA[$F{prTotalMinistryPowPlantsId}]]></variableExpression>
+	</variable>
+	<variable name="v_sum_ac_gversion" class="java.math.BigDecimal" resetType="Group" resetGroup="G_Version" calculation="Sum">
+		<variableExpression><![CDATA[$F{prAc}]]></variableExpression>
+	</variable>
+	<variable name="v_sum_dc_gversion" class="java.math.BigDecimal" resetType="Group" resetGroup="G_Version" calculation="Sum">
+		<variableExpression><![CDATA[$F{prDc}]]></variableExpression>
+	</variable>
+	<group name="sr_com_name">
+		<groupExpression><![CDATA[$F{srComName}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="70" y="0" width="182" height="20" backcolor="#FFF2CC" uuid="4d8536e5-5dee-40b8-bb51-aec2f9a4e146"/>
+					<box leftPadding="2" rightPadding="2">
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{srComName}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="252" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="86991219-bf0a-4053-9133-c333eb56395f">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{numOfPowPlant}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="452" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="2a3d3944-55cd-4b98-a56a-d48ca32c32b6">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalDc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="352" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="50a3debd-a798-4533-8fe1-f34504e4258e">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalAc}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="0" y="0" width="70" height="20" backcolor="#FFF2CC" uuid="9fe0afb0-a8fb-4404-a419-6965d57e4954"/>
+					<box leftPadding="2" rightPadding="2">
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{srAfComOperatorsId}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<staticText>
+					<reportElement x="0" y="0" width="552" height="0" uuid="3dcdff2f-b516-4c18-bf11-de38cdf80061">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="END"/>
+					</reportElement>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="G_Version">
+		<groupExpression><![CDATA[$F{ministryPowPlantsVersion}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="20" y="0" width="532" height="20" backcolor="#FFF2CC" uuid="0ef5b542-d885-412a-be71-4089d00e0056">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="Serif" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ministryPowPlantsVersion}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<staticText>
+					<reportElement mode="Opaque" x="30" y="0" width="222" height="20" backcolor="#FFF2CC" uuid="acb9f407-c368-42fc-a113-9d5cddc198e5">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[合計:]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="252" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="a1a34f64-4d07-4fa0-acbb-594dd7bf806b">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_sum_pow_plant_gversion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="352" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="7fab39d4-2519-4b5a-b12c-a303152809c1">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_sum_ac_gversion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="452" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="e1fdd9c4-153f-4d0a-b9bb-4c95f9fbb88c">
+						<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					</reportElement>
+					<box>
+						<pen lineWidth="0.15"/>
+						<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{v_sum_dc_gversion}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="40" width="182" height="40" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#BF8F00" uuid="ec50f046-ef0b-4ff8-992a-de539a6f4a01"/>
+				<box>
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[企業名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="252" y="40" width="100" height="40" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#BF8F00" uuid="25b3ce25-ca0b-4689-bc7b-ac61516c65ed">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[件数]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="352" y="40" width="100" height="40" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#BF8F00" uuid="9356b058-ef3e-4d05-a409-ff423389bd27">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[AC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="452" y="40" width="100" height="40" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#BF8F00" uuid="3103f463-9408-43a7-b6d3-877868228efe">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[DC]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" mode="Opaque" x="0" y="0" width="552" height="40" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#806000" uuid="70d7943a-5d96-465f-9cd7-ba426d491add"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{p_start_version} + " - " + $P{p_end_version}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="40" width="70" height="40" isRemoveLineWhenBlank="true" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#BF8F00" uuid="a1f6ccc6-cd3b-4e21-b840-048e5d2c351f"/>
+				<box>
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="12" isBold="true" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[企業コード]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="90" y="0" width="162" height="20" backcolor="#FFF2CC" uuid="4ea74b90-6c0f-40c1-99b7-5ab6a40e85ed">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prComName}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="252" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="4dcb7d8e-0dbf-4c5a-b571-7874bfbb07f7">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.15" lineStyle="Solid"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prTotalMinistryPowPlantsId}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="352" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="189b37e7-9a48-4bfa-ad31-31aab4ed957c">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.15" lineStyle="Solid"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prAc}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="452" y="0" width="100" height="20" backcolor="#FFF2CC" uuid="38e0efe2-80c7-410e-9498-d6c1422a5ce0">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.15" lineStyle="Solid"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Serif" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prDc}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="30" y="0" width="60" height="20" backcolor="#FFF2CC" uuid="216a8d34-5318-45d9-a13c-af58a013964d">
+					<property name="net.sf.jasperreports.export.xls.row.outline.level.1" value="Body"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<pen lineWidth="0.15"/>
+					<topPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.15" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" pdfFontName="C:/Windows/Fonts/times.ttf" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prAfComOperatorsID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
