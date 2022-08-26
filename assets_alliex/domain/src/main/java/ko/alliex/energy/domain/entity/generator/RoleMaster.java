@@ -12,6 +12,8 @@ import lombok.ToString;
 public class RoleMaster implements Serializable {
     private Integer roleId;
 
+    private String roleIdentifier;
+
     private String roleName;
 
     private Short isDeleted;
@@ -24,19 +26,17 @@ public class RoleMaster implements Serializable {
 
     private Date updatedAt;
 
-    private String roleIdentifier;
-
     private static final long serialVersionUID = 1L;
 
     public enum Column {
         roleId("role_id", "roleId", "INTEGER", false),
+        roleIdentifier("role_identifier", "roleIdentifier", "VARCHAR", false),
         roleName("role_name", "roleName", "VARCHAR", false),
         isDeleted("is_deleted", "isDeleted", "SMALLINT", false),
         createdUid("created_uid", "createdUid", "INTEGER", false),
         createdAt("created_at", "createdAt", "TIMESTAMP", false),
         updatedUid("updated_uid", "updatedUid", "INTEGER", false),
-        updatedAt("updated_at", "updatedAt", "TIMESTAMP", false),
-        roleIdentifier("role_identifier", "roleIdentifier", "VARCHAR", false);
+        updatedAt("updated_at", "updatedAt", "TIMESTAMP", false);
 
         private static final String BEGINNING_DELIMITER = "\"";
 

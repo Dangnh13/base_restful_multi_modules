@@ -32,8 +32,6 @@ public class Users implements Serializable {
 
     private Date updatedAt;
 
-    private Integer departmentId;
-
     private static final long serialVersionUID = 1L;
 
     public enum Column {
@@ -47,8 +45,7 @@ public class Users implements Serializable {
         createdUid("created_uid", "createdUid", "INTEGER", false),
         createdAt("created_at", "createdAt", "TIMESTAMP", false),
         updatedUid("updated_uid", "updatedUid", "INTEGER", false),
-        updatedAt("updated_at", "updatedAt", "TIMESTAMP", false),
-        departmentId("department_id", "departmentId", "INTEGER", false);
+        updatedAt("updated_at", "updatedAt", "TIMESTAMP", false);
 
         private static final String BEGINNING_DELIMITER = "\"";
 

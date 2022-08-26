@@ -233,6 +233,106 @@ public class RoleMasterCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andRoleIdentifierIsNull() {
+            addCriterion("role_identifier is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierIsNotNull() {
+            addCriterion("role_identifier is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierEqualTo(String value) {
+            addCriterion("role_identifier =", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierEqualToColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier = ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierNotEqualTo(String value) {
+            addCriterion("role_identifier <>", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierNotEqualToColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier <> ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierGreaterThan(String value) {
+            addCriterion("role_identifier >", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierGreaterThanColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier > ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierGreaterThanOrEqualTo(String value) {
+            addCriterion("role_identifier >=", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierGreaterThanOrEqualToColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier >= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierLessThan(String value) {
+            addCriterion("role_identifier <", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierLessThanColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier < ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierLessThanOrEqualTo(String value) {
+            addCriterion("role_identifier <=", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierLessThanOrEqualToColumn(RoleMaster.Column column) {
+            addCriterion(new StringBuilder("role_identifier <= ").append(column.getEscapedColumnName()).toString());
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierLike(String value) {
+            addCriterion("role_identifier like", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierNotLike(String value) {
+            addCriterion("role_identifier not like", value, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierIn(List<String> values) {
+            addCriterion("role_identifier in", values, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierNotIn(List<String> values) {
+            addCriterion("role_identifier not in", values, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierBetween(String value1, String value2) {
+            addCriterion("role_identifier between", value1, value2, "roleIdentifier");
+            return (Criteria) this;
+        }
+
+        public Criteria andRoleIdentifierNotBetween(String value1, String value2) {
+            addCriterion("role_identifier not between", value1, value2, "roleIdentifier");
+            return (Criteria) this;
+        }
+
         public Criteria andRoleNameIsNull() {
             addCriterion("role_name is null");
             return (Criteria) this;
@@ -783,113 +883,13 @@ public class RoleMasterCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andRoleIdentifierIsNull() {
-            addCriterion("role_identifier is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierIsNotNull() {
-            addCriterion("role_identifier is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierEqualTo(String value) {
-            addCriterion("role_identifier =", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierEqualToColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier = ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierNotEqualTo(String value) {
-            addCriterion("role_identifier <>", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierNotEqualToColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier <> ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierGreaterThan(String value) {
-            addCriterion("role_identifier >", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierGreaterThanColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier > ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierGreaterThanOrEqualTo(String value) {
-            addCriterion("role_identifier >=", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierGreaterThanOrEqualToColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier >= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLessThan(String value) {
-            addCriterion("role_identifier <", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLessThanColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier < ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLessThanOrEqualTo(String value) {
-            addCriterion("role_identifier <=", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLessThanOrEqualToColumn(RoleMaster.Column column) {
-            addCriterion(new StringBuilder("role_identifier <= ").append(column.getEscapedColumnName()).toString());
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLike(String value) {
-            addCriterion("role_identifier like", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierNotLike(String value) {
-            addCriterion("role_identifier not like", value, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierIn(List<String> values) {
-            addCriterion("role_identifier in", values, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierNotIn(List<String> values) {
-            addCriterion("role_identifier not in", values, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierBetween(String value1, String value2) {
-            addCriterion("role_identifier between", value1, value2, "roleIdentifier");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierNotBetween(String value1, String value2) {
-            addCriterion("role_identifier not between", value1, value2, "roleIdentifier");
+        public Criteria andRoleIdentifierLikeInsensitive(String value) {
+            addCriterion("upper(role_identifier) like", value.toUpperCase(), "roleIdentifier");
             return (Criteria) this;
         }
 
         public Criteria andRoleNameLikeInsensitive(String value) {
             addCriterion("upper(role_name) like", value.toUpperCase(), "roleName");
-            return (Criteria) this;
-        }
-
-        public Criteria andRoleIdentifierLikeInsensitive(String value) {
-            addCriterion("upper(role_identifier) like", value.toUpperCase(), "roleIdentifier");
             return (Criteria) this;
         }
 

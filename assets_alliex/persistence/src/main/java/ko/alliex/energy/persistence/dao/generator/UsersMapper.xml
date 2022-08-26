@@ -13,7 +13,6 @@
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_uid" jdbcType="INTEGER" property="updatedUid" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
-    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -75,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     user_id, email, password, first_name, last_name, role_identifier, is_deleted, created_uid, 
-    created_at, updated_uid, updated_at, department_id
+    created_at, updated_uid, updated_at
   </sql>
   <select id="selectByExample" parameterType="ko.alliex.energy.domain.entity.generator.UsersCriteria" resultMap="BaseResultMap">
     select
@@ -114,11 +113,11 @@
     insert into users (email, password, first_name, 
       last_name, role_identifier, is_deleted, 
       created_uid, created_at, updated_uid, 
-      updated_at, department_id)
+      updated_at)
     values (#{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{firstName,jdbcType=VARCHAR}, 
       #{lastName,jdbcType=VARCHAR}, #{roleIdentifier,jdbcType=VARCHAR}, #{isDeleted,jdbcType=SMALLINT}, 
       #{createdUid,jdbcType=INTEGER}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedUid,jdbcType=INTEGER}, 
-      #{updatedAt,jdbcType=TIMESTAMP}, #{departmentId,jdbcType=INTEGER})
+      #{updatedAt,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="ko.alliex.energy.domain.entity.generator.Users">
     <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
@@ -156,9 +155,6 @@
       <if test="updatedAt != null">
         updated_at,
       </if>
-      <if test="departmentId != null">
-        department_id,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="email != null">
@@ -190,9 +186,6 @@
       </if>
       <if test="updatedAt != null">
         #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="departmentId != null">
-        #{departmentId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -238,9 +231,6 @@
       <if test="record.updatedAt != null">
         updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.departmentId != null">
-        department_id = #{record.departmentId,jdbcType=INTEGER},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -258,8 +248,7 @@
       created_uid = #{record.createdUid,jdbcType=INTEGER},
       created_at = #{record.createdAt,jdbcType=TIMESTAMP},
       updated_uid = #{record.updatedUid,jdbcType=INTEGER},
-      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP},
-      department_id = #{record.departmentId,jdbcType=INTEGER}
+      updated_at = #{record.updatedAt,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -297,9 +286,6 @@
       <if test="updatedAt != null">
         updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="departmentId != null">
-        department_id = #{departmentId,jdbcType=INTEGER},
-      </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
@@ -314,8 +300,7 @@
       created_uid = #{createdUid,jdbcType=INTEGER},
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_uid = #{updatedUid,jdbcType=INTEGER},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      department_id = #{departmentId,jdbcType=INTEGER}
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <select id="selectByExampleWithRowbounds" parameterType="ko.alliex.energy.domain.entity.generator.UsersCriteria" resultMap="BaseResultMap">
@@ -347,13 +332,13 @@
   <insert id="batchInsert" keyColumn="user_id" keyProperty="userId" parameterType="map" useGeneratedKeys="true">
     insert into users
     (email, password, first_name, last_name, role_identifier, is_deleted, created_uid, 
-      created_at, updated_uid, updated_at, department_id)
+      created_at, updated_uid, updated_at)
     values
     <foreach collection="list" item="item" separator=",">
       (#{item.email,jdbcType=VARCHAR}, #{item.password,jdbcType=VARCHAR}, #{item.firstName,jdbcType=VARCHAR}, 
         #{item.lastName,jdbcType=VARCHAR}, #{item.roleIdentifier,jdbcType=VARCHAR}, #{item.isDeleted,jdbcType=SMALLINT}, 
         #{item.createdUid,jdbcType=INTEGER}, #{item.createdAt,jdbcType=TIMESTAMP}, #{item.updatedUid,jdbcType=INTEGER}, 
-        #{item.updatedAt,jdbcType=TIMESTAMP}, #{item.departmentId,jdbcType=INTEGER})
+        #{item.updatedAt,jdbcType=TIMESTAMP})
     </foreach>
   </insert>
   <insert id="batchInsertSelective" keyColumn="user_id" keyProperty="list.userId" parameterType="map" useGeneratedKeys="true">
@@ -396,9 +381,6 @@
         <if test="'updated_at'.toString() == column.value">
           #{item.updatedAt,jdbcType=TIMESTAMP}
         </if>
-        <if test="'department_id'.toString() == column.value">
-          #{item.departmentId,jdbcType=INTEGER}
-        </if>
       </foreach>
       )
     </foreach>
@@ -439,9 +421,6 @@
       <if test="updatedAt != null">
         updated_at,
       </if>
-      <if test="departmentId != null">
-        department_id,
-      </if>
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -477,9 +456,6 @@
       </if>
       <if test="updatedAt != null">
         #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="departmentId != null">
-        #{departmentId,jdbcType=INTEGER},
       </if>
     </trim>
     on duplicate key update 
@@ -517,9 +493,6 @@
       <if test="updatedAt != null">
         updated_at = #{updatedAt,jdbcType=TIMESTAMP},
       </if>
-      <if test="departmentId != null">
-        department_id = #{departmentId,jdbcType=INTEGER},
-      </if>
     </trim>
   </insert>
   <insert id="upsert" keyColumn="user_id" keyProperty="userId" parameterType="ko.alliex.energy.domain.entity.generator.Users" useGeneratedKeys="true">
@@ -538,7 +511,6 @@
       created_at,
       updated_uid,
       updated_at,
-      department_id,
     </trim>
     values
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -555,7 +527,6 @@
       #{createdAt,jdbcType=TIMESTAMP},
       #{updatedUid,jdbcType=INTEGER},
       #{updatedAt,jdbcType=TIMESTAMP},
-      #{departmentId,jdbcType=INTEGER},
     </trim>
     on duplicate key update 
     <trim suffixOverrides=",">
@@ -572,7 +543,6 @@
       created_at = #{createdAt,jdbcType=TIMESTAMP},
       updated_uid = #{updatedUid,jdbcType=INTEGER},
       updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      department_id = #{departmentId,jdbcType=INTEGER},
     </trim>
   </insert>
 </mapper>

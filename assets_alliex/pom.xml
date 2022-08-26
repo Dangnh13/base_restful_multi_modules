@@ -112,34 +112,10 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <!-- Oauth2 service-->
-            <dependency>
-                <groupId>ko.alliex</groupId>
-                <artifactId>oauth2-google</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <!-- jwt security service-->
             <dependency>
                 <groupId>ko.alliex</groupId>
                 <artifactId>jwt</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <!-- Jwt security for subsystems -->
-            <dependency>
-                <groupId>ko.alliex</groupId>
-                <artifactId>subsystem-jwt</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <!-- Event bus -->
-            <dependency>
-                <groupId>ko.alliex</groupId>
-                <artifactId>vertx-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ko.alliex</groupId>
-                <artifactId>event-bus-web-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -151,13 +127,7 @@
 
             <dependency>
                 <groupId>ko.alliex</groupId>
-                <artifactId>rest-api</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>ko.alliex</groupId>
-                <artifactId>subsystem-api</artifactId>
+                <artifactId>api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -186,6 +156,7 @@
         <module>business</module>
         <module>security</module>
         <module>mybatis-generator</module>
+        <module>mybatis-schema-migration</module>
         <module>web</module>
     </modules>
 
