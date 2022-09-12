@@ -47,14 +47,7 @@ example:
     ```shell script
     sudo java -jar rest-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=development  --LOG_PATH=/opt/logs/energy_data_platform_dev/dangnh
     ```
-* Run on staging env:
-    ```
-    sudo java -jar rest-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=staging --LOG_PATH=/home/nhdang/app_log/web-back --MYSQL_HOST=energy-data-stg-db-01.cfe5ia3jklz0.ap-northeast-1.rds.amazonaws.com  --MYSQL_PORT=3306  --MYSQL_DB=energy_data_platform_stg  --MYSQL_USERNAME=energydata_app --MYSQL_PASSWORD=yBcExGXLUcwJN2xL
-    ```
 
-* Run on master env:
-    ```
-    sudo java -jar rest-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=production --LOG_PATH=/var/log/data_platform/web-back --MYSQL_HOST=energy-data-stg-db-01.cfe5ia3jklz0.ap-northeast-1.rds.amazonaws.com  --MYSQL_PORT=3306  --MYSQL_DB=energy_data_platform_stg  --MYSQL_USERNAME=energydata_app --MYSQL_PASSWORD=yBcExGXLUcwJN2xL --JWT_SECRET=yBcExGXLUcwJN2xL
     ```
 
 
